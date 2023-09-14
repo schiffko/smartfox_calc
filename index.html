@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<!--HTML-->
+<body>
+<h1>
+    Smartfox Calculator
+</h1>
+
+<h3>KW -> W</h3>
+<div class="calculationRow">
+    <input id="berechneWattEingabe" type="number" onchange="berechneWatt()"/>
+    <div id="berechneWattAusgabe" class="result">Watt</div>
+</div>
+
+
+<h3>W -> KW</h3>
+<div class="calculationRow">
+    <input id="berechneKiloWattEingabe" type="number" onchange="berechneKiloWatt()"/>
+    <div id="berechneKiloWattAusgabe" class="result">KiloWatt</div>
+</div>
+
+
+<h4>A*V -> KW</h4>
+<div class id="calculationRow">
+    <input id="berechneStromEingabe" type="number" onchange="berechneLeistung()"/>
+    <input id="berechneSpannungEingabe" type="number" onchange="berechneLeistung()"/>
+    <div id="berechneLeistungAusgabe" class="result">Leistung</div>
+    <div id="berechneLeistungKWAusgabe" class="result">Leistung</div>
+</div>
+
+
+<h4>Rechner</h4>
+<div class id="calculationRow">
+    <input id="rechnerEingabe1" type="number"/>
+    <input id="rechnerEingabe2" type="number"/>
+    <div id="rechnerAusgabe" class="result">Ergebnis</div>
+    <div>
+        <button onclick="plus()">+</button>
+        <button onclick="minus()">-</button>
+        <button onclick="multyplication()">*</button>
+        <button onclick="division()">/</button>
+    </div>
+</div>
+
+
+<h5>L*B -> A</h5>
+<div class id="calculationRow">
+    <input id="berechneLängeEingabe" type="number" onchange="berechneFläche()"/>
+    <input id="berechneBreiteEingabe" type="number" onchange="berechneFläche()"/>
+    <div id="berechneFlächeAusgabe" class="result">Fläche</div>
+</div>
+
+<h5>2*(L+B) -> U</h5>
+<div class id="calculationRow">
+    <input id="berechneUmfangLängeEingabe" type="number" onchange="berechneUmfang()"/>
+    <input id="berechneUmfangBreiteEingabe" type="number" onchange="berechneUmfang()"/>
+    <div id="berechneUmfangAusgabe" class="result">Umfang</div>
+</body>
+
+
+<!--JavaScript-->
+<script>
+    function berechneWatt() {
+        var eingabe = document.getElementById("berechneWattEingabe").value
+        console.log(eingabe)
+        var ausgabe = eingabe * 1000
+        console.log(ausgabe)
+        document.getElementById("berechneWattAusgabe").innerHTML = ausgabe + "W"
+    }
+
+    function berechneKiloWatt() {
+        var eingabe = document.getElementById("berechneKiloWattEingabe").value
+        console.log(eingabe)
+        var ausgabe = eingabe / 1000
+        console.log(ausgabe)
+        document.getElementById("berechneKiloWattAusgabe").innerHTML = ausgabe + "KW"
+    }
+
+    function berechneLeistung() {
+        var eingabeStrom = document.getElementById("berechneStromEingabe").value
+        var eingabeSpannung = document.getElementById("berechneSpannungEingabe").value
+        console.log(eingabeStrom)
+        console.log(eingabeSpannung)
+        var ausgabe = eingabeStrom * eingabeSpannung
+        console.log(ausgabe)
+        document.getElementById("berechneLeistungAusgabe").innerHTML = ausgabe + "W"
+        document.getElementById("berechneLeistungKWAusgabe").innerHTML = ausgabe/1000 + "KW"
+    }
+
+    function plus(){
+        var rechnerEingabe1 = Number(document.getElementById("rechnerEingabe1").value)
+        var rechnerEingabe2 = Number(document.getElementById("rechnerEingabe2").value)
+        console.log(rechnerEingabe1)
+        console.log(rechnerEingabe2)
+        var ausgabe = rechnerEingabe1 + rechnerEingabe2
+        console.log(ausgabe)
+        document.getElementById("rechnerAusgabe").innerHTML = ausgabe
+     }
+
+     function minus(){
+        var rechnerEingabe1 = Number(document.getElementById("rechnerEingabe1").value)
+        var rechnerEingabe2 = Number(document.getElementById("rechnerEingabe2").value)
+        console.log(rechnerEingabe1)
+        console.log(rechnerEingabe2)
+        var ausgabe = rechnerEingabe1 - rechnerEingabe2
+        console.log(ausgabe)
+        document.getElementById("rechnerAusgabe").innerHTML = ausgabe
+    }
+        
+        function multyplication(){
+        var rechnerEingabe1 = Number(document.getElementById("rechnerEingabe1").value)
+        var rechnerEingabe2 = Number(document.getElementById("rechnerEingabe2").value)
+        console.log(rechnerEingabe1)
+        console.log(rechnerEingabe2)
+        var ausgabe = rechnerEingabe1 * rechnerEingabe2
+        console.log(ausgabe)
+        document.getElementById("rechnerAusgabe").innerHTML = ausgabe 
+     }
+
+     function division(){
+        var rechnerEingabe1 = Number(document.getElementById("rechnerEingabe1").value)
+        var rechnerEingabe2 = Number(document.getElementById("rechnerEingabe2").value)
+        console.log(rechnerEingabe1)
+        console.log(rechnerEingabe2)
+        var ausgabe = rechnerEingabe1 / rechnerEingabe2
+        console.log(ausgabe)
+        document.getElementById("rechnerAusgabe").innerHTML = ausgabe 
+     }
+
+     function berechneFläche() {
+        var eingabeLänge = document.getElementById("berechneLängeEingabe").value
+        var eingabeBreite = document.getElementById("berechneBreiteEingabe").value
+        console.log(eingabeLänge)
+        console.log(eingabeBreite)
+        var ausgabe = eingabeLänge * eingabeBreite
+        console.log(ausgabe)
+        document.getElementById("berechneFlächeAusgabe").innerHTML = ausgabe 
+    }
+
+    function berechneUmfang() {
+        var eingabeLänge = Number(document.getElementById("berechneUmfangLängeEingabe").value)
+        var eingabeBreite = Number(document.getElementById("berechneUmfangBreiteEingabe").value)
+        console.log(eingabeLänge)
+        console.log(eingabeBreite)
+        var ausgabe = 2 * (eingabeLänge + eingabeBreite)
+        console.log(ausgabe)
+        document.getElementById("berechneUmfangAusgabe").innerHTML = ausgabe 
+    }
+</script>
+
+
+
+<!--CSS-->
+<style>
+
+body {
+    background-color: lightblue;
+    text-shadow: 2px 2px 5px white;
+    
+}
+h1{
+    color:black
+}
+h3{
+font-size: 20px;
+}
+.calculationRow{
+}
+.result{
+    margin-left: 20px;
+    display: inline;
+    font-size: 19px;
+}
+h4{
+    font-size: 20px;
+}
+
+
+ 
+
+</style>
